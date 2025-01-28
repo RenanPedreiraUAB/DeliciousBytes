@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Delicious Bytes - Formulário de Receita</title>
+  <style>
+    /* Estilos básicos para ilustrar o wireframe */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header, footer {
+      background: #ccc;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      min-height: 60vh;
+      padding: 1em;
+    }
+    .wireframe-box {
+      border: 2px solid #666;
+      padding: 1em;
+      max-width: 600px;
+      margin: 2em auto; /* centraliza o formulário */
+    }
+    .wireframe-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"], select, textarea, input[type="file"] {
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.7em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Delicious Bytes</h1>
+    <!-- Logo, nome do website e eventualmente ícone do utilizador -->
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Seção do formulário de criação/edição de receitas -->
+    <section class="wireframe-box">
+      <h2>Criar/Editar Receita</h2>
+      <form>
+        <!-- Nome da Receita -->
+        <div>
+          <label for="nome-receita">Nome da Receita</label><br>
+          <input type="text" id="nome-receita" placeholder="Ex: Brigadeiro">
+        </div>
+
+        <!-- Categoria -->
+        <div>
+          <label for="categoria-receita">Categoria</label><br>
+          <select id="categoria-receita">
+            <option value="Entradas">Entradas</option>
+            <option value="Lanches">Lanches</option>
+            <option value="Tapas">Tapas</option>
+            <option value="Pratos Principais">Pratos Principais</option>
+            <option value="Sobremesa">Sobremesa</option>
+            <option value="Drinks">Drinks</option>
+          </select>
+        </div>
+
+        <!-- Etapas (modo de preparação) -->
+        <div>
+          <label for="etapas-receita">Etapas</label><br>
+          <textarea id="etapas-receita" rows="5" placeholder="Descreva o modo de preparo..."></textarea>
+        </div>
+
+        <!-- Upload de Imagem -->
+        <div>
+          <label for="imagem-receita">Imagem</label><br>
+          <input type="file" id="imagem-receita">
+        </div>
+
+        <!-- Botões (Salvar e eventualmente Cancelar/Voltar) -->
+        <div>
+          <button type="submit">Salvar</button>
+          <!-- Se precisar de um botão de cancelar/voltar, adicione aqui -->
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Delicious Bytes</p>
+  </footer>
+
+</body>
+</html>

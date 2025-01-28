@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delicious Bytes</title>
+
+  <!-- Fonte Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Paleta de cores em tons de azul */
+    :root {
+      --color-primary: #0077b6;   /* azul principal */
+      --color-secondary: #caf0f8; /* tom clarinho azulado */
+      --color-bg: #f0f9ff;       /* fundo suave */
+      --color-dark: #023047;     /* azul escuro */
+      --color-light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--color-bg);
+      font-family: 'Raleway', sans-serif;
+      color: var(--color-dark);
+    }
+
+    /* Header */
+    header {
+      background: var(--color-primary);
+      color: var(--color-light);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between; /* espaço entre o título e a info do user */
+      align-items: center;           /* alinha verticalmente no centro */
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    /* User Info no header */
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer; /* se quiser que seja clicável, ex. para abrir um menu */
+    }
+    .user-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+    .username {
+      font-weight: 600;
+    }
+
+    /* Main */
+    main {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Filtros e Botões */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      background: var(--color-secondary);
+      padding: 1rem;
+      border-radius: 5px;
+    }
+    .filters label {
+      margin-right: 0.3rem;
+      font-weight: 600;
+    }
+    .filters input[type="text"],
+    .filters select {
+      padding: 0.4rem;
+      border-radius: 4px;
+      border: 1px solid #aaa;
+    }
+    .filters button {
+      background: var(--color-primary);
+      border: none;
+      color: var(--color-light);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .filters button:hover {
+      opacity: 0.9;
+    }
+
+    /* Tabela de Receitas */
+    .recipe-list {
+      background: var(--color-light);
+      border-radius: 5px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .recipe-list table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .recipe-list th, .recipe-list td {
+      text-align: left;
+      padding: 0.8rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .recipe-list thead {
+      background: var(--color-secondary);
+    }
+    .actions button {
+      margin-right: 0.5rem;
+      padding: 0.3rem 0.7rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .actions .btn-delete {
+      background-color: #d32f2f;
+      color: #fff;
+    }
+    .actions .btn-edit {
+      background-color: #ffb703;
+      color: #fff;
+    }
+    .actions .btn-view {
+      background-color: #00b4d8;
+      color: #fff;
+    }
+    .actions button:hover {
+      opacity: 0.8;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-primary);
+      color: var(--color-light);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* Popup de Login (exemplo de estilização) */
+    #login-popup {
+      display: none; /* oculto inicialmente */
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--color-light);
+      padding: 2rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      width: 300px;
+    }
+    #login-popup h2 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--color-primary);
+    }
+    #login-popup form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    #login-popup form label {
+      font-weight: 600;
+    }
+    #login-popup form input[type="text"],
+    #login-popup form input[type="password"] {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #bbb;
+    }
+    #login-popup form button {
+      background: var(--color-primary);
+      color: var(--color-light);
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Delicious Bytes</h1>
+
+    <!-- Ícone + nome de utilizador (caso esteja logado). 
+         Se não estiver logado, pode exibir "Login" -->
+    <div class="user-info">
+      <!-- SVG de ícone de user (inline). Poderia usar outra biblioteca -->
+      <svg class="user-icon" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M12 14c-4.3 0-8 2.3-8 4v2h16v-2c0-1.7-3.7-4-8-4z"></path>
+      </svg>
+      <span class="username">testeUser</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Popup de Login -->
+    <div id="login-popup">
+      <h2>Login / Criar Conta</h2>
+      <form>
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="exemplo@dominio.com">
+        
+        <label for="password">Password</label>
+        <input type="password" id="password">
+
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <!-- Filtros e Botões de Ação -->
+    <section class="filters">
+      <div>
+        <label for="filtro-nome">Nome:</label>
+        <input type="text" id="filtro-nome" placeholder="Ex: Pão de queijo">
+      </div>
+      <div>
+        <label for="filtro-autor">Autor:</label>
+        <input type="text" id="filtro-autor" placeholder="Ex: Maria">
+      </div>
+      <div>
+        <label for="filtro-categoria">Categoria:</label>
+        <select id="filtro-categoria">
+          <option value="">Todas</option>
+          <option value="Entradas">Entradas</option>
+          <option value="Lanches">Lanches</option>
+          <option value="Tapas">Tapas</option>
+          <option value="Pratos Principais">Pratos Principais</option>
+          <option value="Sobremesa">Sobremesa</option>
+          <option value="Drinks">Drinks</option>
+        </select>
+      </div>
+      <button id="btn-pesquisar">Pesquisar</button>
+      <button id="btn-criar-receita">+ Criar Nova Receita</button>
+    </section>
+
+    <!-- Lista de Receitas -->
+    <section class="recipe-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Autor</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Exemplo de item (mock data) -->
+          <tr>
+            <td>Brigadeiro</td>
+            <td>Sobremesa</td>
+            <td>testeUser</td>
+            <td>27/01/2025</td>
+            <td class="actions">
+              <button class="btn-delete">Apagar</button>
+              <button class="btn-edit">Editar</button>
+              <button class="btn-view">Ver</button>
+            </td>
+          </tr>
+          <!-- Outras receitas... -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Delicious Bytes</p>
+  </footer>
+
+</body>
+</html>

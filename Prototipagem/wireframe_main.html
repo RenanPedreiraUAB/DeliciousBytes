@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delicious Bytes - Wireframe</title>
+  <style>
+    /* Estilos básicos para visualizar o wireframe */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header, footer {
+      background: #ccc;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      min-height: 60vh; /* apenas para demonstrar espaço */
+      padding: 1em;
+    }
+    .wireframe-box {
+      border: 2px solid #666;
+      margin: 1em 0;
+      padding: 1em;
+    }
+    .top-bar {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1em;
+    }
+    .top-bar input[type="text"],
+    .top-bar select {
+      padding: 0.3em;
+    }
+    .recipes-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    .recipes-table thead {
+      background: #f0f0f0;
+    }
+    .recipes-table th, .recipes-table td {
+      border: 1px solid #aaa;
+      padding: 0.5em;
+      text-align: left;
+    }
+    .actions button {
+      margin-right: 0.3em;
+    }
+    /* Exemplo simples de popup (ficaria escondido por CSS, aparecendo via JS) */
+    #login-popup {
+      display: none; /* Inicialmente oculto */
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid #666;
+      background: #fff;
+      padding: 2em;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Delicious Bytes</h1>
+    <!-- Aqui poderia vir o ícone / círculo do utilizador, e botão de login/logout -->
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Pop-up de Login (ficaria oculto até o utilizador clicar em 'Login') -->
+    <div id="login-popup" class="wireframe-box">
+      <!-- Formulário de login ou criação de conta -->
+      <h2>Login / Criar Conta</h2>
+      <form>
+        <label for="login-email">Email:</label>
+        <input type="text" id="login-email" />
+        <br><br>
+        <label for="login-pass">Password:</label>
+        <input type="password" id="login-pass" />
+        <br><br>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <!-- Seção onde ficam os filtros e listagem de receitas -->
+    <section class="wireframe-box">
+      <!-- Barra de pesquisa/filtros -->
+      <div class="top-bar">
+        <div>
+          <label for="filtro-nome">Pesquisa por Nome:</label>
+          <input type="text" id="filtro-nome" placeholder="Ex: Pão de queijo" />
+        </div>
+        <div>
+          <label for="filtro-autor">Pesquisa por Autor:</label>
+          <input type="text" id="filtro-autor" placeholder="Ex: Maria" />
+        </div>
+        <div>
+          <label for="filtro-categoria">Categoria:</label>
+          <select id="filtro-categoria">
+            <option value="">Todas</option>
+            <option value="Entradas">Entradas</option>
+            <option value="Lanches">Lanches</option>
+            <option value="Tapas">Tapas</option>
+            <option value="Pratos Principais">Pratos Principais</option>
+            <option value="Sobremesa">Sobremesa</option>
+            <option value="Drinks">Drinks</option>
+          </select>
+        </div>
+        <button id="btn-pesquisar">Pesquisar</button>
+        <!-- Botão para criar nova receita (apenas visível se user estiver logado) -->
+        <button id="btn-criar-receita">+ Criar Nova Receita</button>
+      </div>
+
+      <!-- Tabela de receitas (listagem) -->
+      <table class="recipes-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Autor</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Exemplo de linha (wireframe) -->
+          <tr>
+            <td>Brigadeiro</td>
+            <td>Sobremesa</td>
+            <td>testeUser</td>
+            <td>27/01/2025</td>
+            <td class="actions">
+              <button>Apagar</button>
+              <button>Editar</button>
+              <button>Ver</button>
+            </td>
+          </tr>
+          <!-- Outras receitas seriam listadas aqui -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Formulário para criação/edição de receitas (poderia ficar oculto até ser acionado) -->
+    <section id="form-receita" class="wireframe-box" style="display: none;">
+      <h2>Criar/Editar Receita</h2>
+      <form>
+        <label for="nome-receita">Nome da Receita:</label>
+        <input type="text" id="nome-receita" />
+        <br><br>
+
+        <label for="categoria-receita">Categoria:</label>
+        <select id="categoria-receita">
+          <option value="Entradas">Entradas</option>
+          <option value="Lanches">Lanches</option>
+          <option value="Tapas">Tapas</option>
+          <option value="Pratos Principais">Pratos Principais</option>
+          <option value="Sobremesa">Sobremesa</option>
+          <option value="Drinks">Drinks</option>
+        </select>
+        <br><br>
+
+        <label for="etapas-receita">Etapas:</label><br>
+        <textarea id="etapas-receita" rows="5" cols="40"></textarea>
+        <br><br>
+
+        <!-- Campo para upload de imagem/base64, etc. -->
+        <label for="imagem-receita">Imagem:</label>
+        <input type="file" id="imagem-receita" />
+        <br><br>
+
+        <button type="submit">Salvar</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Delicious Bytes</p>
+  </footer>
+
+</body>
+</html>
