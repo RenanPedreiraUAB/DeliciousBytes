@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Delicious Bytes - Login</title>
+
+  <!-- Fonte Google (Raleway) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Paleta em tons de azul */
+    :root {
+      --color-primary: #0077b6;
+      --color-secondary: #caf0f8;
+      --color-bg: #f0f9ff;
+      --color-dark: #023047;
+      --color-light: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--color-bg);
+      font-family: 'Raleway', sans-serif;
+      color: var(--color-dark);
+    }
+
+    /* Header (mantendo layout à esquerda + algo à direita) */
+    header {
+      background: var(--color-primary);
+      color: var(--color-light);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+    /* Se o user não estiver logado, pode ficar vazio ou exibir algo como 'Login' */
+    .header-right {
+      /* só para manter a estrutura similar às outras páginas */
+    }
+
+    /* Main */
+    main {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    /* Caixa de Login/Criar Conta */
+    .login-container {
+      background: var(--color-light);
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .login-container h2 {
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+    .login-container label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .buttons button {
+      flex: 1;
+      background: var(--color-primary);
+      color: var(--color-light);
+      border: none;
+      border-radius: 4px;
+      padding: 0.6rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+    }
+    .buttons button:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-primary);
+      color: var(--color-light);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header com título alinhado à esquerda -->
+  <header>
+    <h1>Delicious Bytes</h1>
+    <!-- Se vazio, exibe espaço para manter consistência de layout -->
+    <div class="header-right"></div>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <div class="login-container">
+      <h2>Login / Criar Conta</h2>
+
+      <!-- Campos de credenciais -->
+      <label for="emailOrUsername">Email ou Username</label>
+      <input type="text" id="emailOrUsername" placeholder="ex: joao@example.com">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="******">
+
+      <!-- Botões -->
+      <div class="buttons">
+        <button id="btnLogin">Login</button>
+        <button id="btnRegister">Criar Conta</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Delicious Bytes</p>
+  </footer>
+</body>
+</html>

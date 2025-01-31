@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delicious Bytes - Registo/Login</title>
+  <style>
+    /* Estilos básicos para simular um wireframe */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    header, footer {
+      background: #ccc;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      min-height: 60vh;
+      padding: 1rem;
+    }
+    .wireframe-box {
+      border: 2px dashed #666;
+      margin: 1rem auto;
+      padding: 1rem;
+      max-width: 400px;
+    }
+    .wireframe-box h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .wireframe-box label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .wireframe-box input {
+      width: 100%;
+      padding: 0.4rem;
+      margin-top: 0.3rem;
+    }
+    .wireframe-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .wireframe-buttons button {
+      flex: 1;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Delicious Bytes</h1>
+  </header>
+
+  <main>
+    <div class="wireframe-box">
+      <h2>Login / Criar Conta</h2>
+      
+      <!-- Campos de credenciais -->
+      <label for="usernameOrEmail">Username / Email</label>
+      <input type="text" id="usernameOrEmail" placeholder="ex: joao@example.com">
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="******">
+
+      <!-- Botões -->
+      <div class="wireframe-buttons">
+        <button>Login</button>
+        <button>Criar Conta</button>
+      </div>
+      
+      <!-- (Observação: Lógica real para habilitar/desabilitar seria no JS, 
+           mas no wireframe é só estrutura) -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Delicious Bytes</p>
+  </footer>
+
+</body>
+</html>
