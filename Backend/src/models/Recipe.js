@@ -8,7 +8,7 @@ const RecipeSchema = new Schema({
   },
   autor: {
     type: Schema.Types.ObjectId,
-    ref: 'User',  // referência ao modelo 'User'
+    ref: 'User', // Referência ao modelo 'User'
     required: true
   },
   categoria: {
@@ -20,7 +20,7 @@ const RecipeSchema = new Schema({
     required: true
   },
   imagem: {
-    type: String // pode ser base64 ou URL
+    type: String // Pode ser uma URL local (`/uploads/...`) ou Base64
   },
   createdAt: {
     type: Date,

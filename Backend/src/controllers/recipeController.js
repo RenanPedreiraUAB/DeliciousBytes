@@ -4,20 +4,20 @@ module.exports = {
   // Criar receita
   async create(req, res) {
     try {
-      const userId = req.userId; // recuperado através de middleware de autenticação, p.ex.
-      const { nome, categoria, etapas, imagem } = req.body;
+      const userId = req.userId; // ID do usuário autenticado
+      const { nome, categoria, etapas, imagemBase64 } = req.body;
 
-      // Enviar para o service
+      // O frontend enviará a imagem diretamente como Base64 no campo `imagemBase64`
       const newRecipe = await recipeService.createRecipe({
         nome,
         categoria,
         etapas,
-        imagem,
+        imagem: imagemBase64 || null, // Armazena a imagem Base64 ou null
         autor: userId
       });
 
       return res.status(201).json({
-        message: 'Recipe created successfully',
+        message: 'Receita criada com sucesso!',
         recipe: newRecipe
       });
     } catch (error) {
@@ -59,14 +59,19 @@ module.exports = {
   // Editar receita
   async update(req, res) {
     try {
-      const userId = req.userId;  // assumindo middleware de autenticação
+      const userId = req.userId;
       const { id } = req.params;
-      const updateData = req.body;
+      const { imagemBase64, ...updateData } = req.body;
+
+      // Se houver uma nova imagem em Base64, substitui a existente
+      if (imagemBase64) {
+        updateData.imagem = imagemBase64;
+      }
 
       const updatedRecipe = await recipeService.updateRecipe(id, updateData, userId);
 
       return res.status(200).json({
-        message: 'Recipe updated successfully',
+        message: 'Receita atualizada com sucesso!',
         recipe: updatedRecipe
       });
     } catch (error) {
@@ -77,13 +82,13 @@ module.exports = {
   // Remover receita
   async remove(req, res) {
     try {
-      const userId = req.userId; // assumindo middleware
+      const userId = req.userId;
       const { id } = req.params;
 
       await recipeService.deleteRecipe(id, userId);
 
       return res.status(200).json({
-        message: 'Recipe deleted successfully'
+        message: 'Receita removida com sucesso!'
       });
     } catch (error) {
       return res.status(400).json({ error: error.message });
