@@ -1,0 +1,257 @@
+/* 🔤 Fonte principal */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+/* 🎨 Paleta de cores */
+:root {
+    --color-primary: #0077b6;
+    --color-secondary: #caf0f8;
+    --color-bg: #f0f9ff;
+    --color-dark: #023047;
+    --color-light: #ffffff;
+    --color-gray: #8a8a8a;
+}
+
+/* 🌍 Reset e estrutura base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* 🌍 Configuração global */
+html, body {
+    height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 📌 Estrutura da página */
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 📌 Header */
+header {
+    background: var(--color-primary);
+    color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* 🔹 Informações do usuário no header */
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* 🏠 Main Content */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 🔄 Mantém o conteúdo alinhado no topo */
+    align-items: center;
+    padding: 2rem;
+    max-width: 1000px; /* 🔄 Maior largura */
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: auto; /* 🔄 Se o conteúdo for grande, rola dentro do container */
+}
+
+/* 📜 Formulários */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--color-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 700px; /* 🔄 Maior largura */
+}
+
+form label {
+    font-weight: 600;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* 🖼️ Botões */
+button {
+    background: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.6rem 1rem;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.btn-cancel {
+    background: var(--color-gray);
+}
+
+.btn-cancel:hover {
+    opacity: 0.85;
+}
+
+/* 📋 Listagem de receitas */
+.recipe-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 900px; /* 🔄 Maior largura */
+}
+
+/* 📋 Item de receita */
+.recipe-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto; /* 🔄 Nome - Categoria - Ações */
+    align-items: center;
+    padding: 1rem;
+    background: var(--color-light);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+}
+
+/* 📌 Nome da receita */
+.recipe-name {
+    font-weight: bold;
+    min-width: 200px;
+}
+
+/* 📌 Categoria */
+.recipe-category {
+    min-width: 150px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+}
+
+/* 📌 Botões de ação */
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.actions button {
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+
+.actions button:nth-child(1) { /* Editar */
+    background: orange;
+}
+
+.actions button:nth-child(2) { /* Apagar */
+    background: red;
+    color: var(--color-light);
+}
+
+.actions button:last-child {
+    background: var(--color-primary) !important;
+    color: var(--color-light);
+}
+
+/* 🖼️ Página de detalhes da receita */
+.recipe-details {
+    background: var(--color-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px; /* 🔄 Ajustado para não ficar muito compacto */
+}
+
+.recipe-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* 🔍 Barra de Pesquisa */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-secondary);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.filters input,
+.filters select {
+    padding: 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    font-size: 1rem;
+}
+
+.filters button {
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filters button:hover {
+    opacity: 0.9;
+}
+
+/* 📌 Footer */
+footer {
+    background: var(--color-primary);
+    color: var(--color-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* 🔄 Mantém o footer fixo na parte inferior */
+    width: 100%;
+}
