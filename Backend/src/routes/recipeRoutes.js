@@ -6,7 +6,7 @@ const path = require('path');
 
 const router = express.Router();
 
-// 🖼 Configuração do `multer` para upload de imagens
+// Configuração do `multer` para upload de imagens
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/'); // Define a pasta onde as imagens serão armazenadas
@@ -19,12 +19,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// 📌 Rotas protegidas (precisam de login)
+// Rotas protegidas (precisam de login)
 router.post('/', auth, upload.single('imagem'), recipeController.create);
 router.put('/:id', auth, upload.single('imagem'), recipeController.update);
 router.delete('/:id', auth, recipeController.remove);
 
-// 📌 Rotas públicas (qualquer um pode ver receitas)
+// Rotas públicas (qualquer um pode ver receitas)
 router.get('/', recipeController.list);
 router.get('/:id', recipeController.getDetails);
 

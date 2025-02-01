@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style>
-/* 🔹 Estilos para manter o layout fixo */
+/* Estilos para manter o layout fixo */
 html, body {
   height: 100%;
   margin: 0;
@@ -30,19 +30,19 @@ html, body {
   flex-direction: column;
 }
 
-/* 🔹 Container da aplicação, mantém tudo organizado */
+/* Container da aplicação, mantém tudo organizado */
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-/* 🔹 Header sempre no topo */
+/* Header sempre no topo */
 header {
   flex-shrink: 0;
 }
 
-/* 🔹 O conteúdo central ocupa o espaço disponível */
+/* O conteúdo central ocupa o espaço disponível */
 main {
   flex-grow: 1;
   overflow-y: auto;
@@ -59,7 +59,7 @@ main {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 🔹 Footer sempre fixo no final */
+/* Footer sempre fixo no final */
 footer {
   flex-shrink: 0;
   text-align: center;

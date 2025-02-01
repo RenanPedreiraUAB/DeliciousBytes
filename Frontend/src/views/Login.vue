@@ -2,7 +2,7 @@
   <div class="login-container">
     <h2>Login / Criar Conta</h2>
 
-    <!-- 📝 Campos do formulário -->
+    <!-- Campos do formulário -->
     <form @submit.prevent="handleSubmit">
       <label for="email">Email</label>
       <input type="email" id="email" v-model="email" required placeholder="ex: joao@example.com" />
@@ -10,10 +10,10 @@
       <label for="password">Password</label>
       <input type="password" id="password" v-model="password" required placeholder="******" />
 
-      <!-- ⚠️ Mensagem de erro -->
+      <!-- Mensagem de erro -->
       <p v-if="erro" class="error-message">{{ erro }}</p>
 
-      <!-- 🟢 Botões -->
+      <!-- Botões -->
       <div class="buttons">
         <button type="button" @click="login" :disabled="!email || !password">Login</button>
         <button type="button" @click="criarConta" :disabled="!email || !password">Criar Conta</button>
@@ -48,7 +48,7 @@ export default {
         const resposta = await authService.criarConta(username, this.email, this.password);
 
         if (resposta && resposta.user) {
-          await this.login(); // ✅ Faz login automaticamente após criação da conta
+          await this.login(); // Faz login automaticamente após criação da conta
         } else {
           this.erro = "Erro inesperado ao criar conta.";
         }
@@ -61,9 +61,9 @@ export default {
       localStorage.setItem("userId", dados.user._id);
       localStorage.setItem("username", dados.user.username);
       
-      this.$router.push("/");  // ✅ Redireciona para a home
+      this.$router.push("/");  // Redireciona para a home
       setTimeout(() => {
-        window.location.reload(); // 🔄 Garante que o nome do usuário apareça corretamente
+        window.location.reload(); // Garante que o nome do usuário apareça corretamente
       }, 100); // Pequeno delay para garantir que o redirecionamento ocorra antes do refresh
     }
   }

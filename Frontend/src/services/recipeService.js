@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:3000/recipes';
 export default {
   async listarReceitas(filtros = {}) {
     try {
-      const params = new URLSearchParams(filtros).toString(); // ✅ Converte filtros em query params
+      const params = new URLSearchParams(filtros).toString(); // Converte filtros em query params
       const response = await axios.get(`${API_URL}?${params}`);
       return response.data;
     } catch (error) {
@@ -20,7 +20,7 @@ export default {
   async criarReceita(dados) {
     const token = localStorage.getItem('token');
     
-    // 🔄 Verifica se a imagem é um arquivo ou já está em Base64
+    // Verifica se a imagem é um arquivo ou já está em Base64
     const formData = new FormData();
     formData.append('nome', dados.nome);
     formData.append('categoria', dados.categoria);

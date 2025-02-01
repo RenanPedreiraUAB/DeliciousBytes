@@ -28,14 +28,14 @@ html, body {
     flex-direction: column;
 }
 
-/* 📌 Estrutura da página */
+/*  Estrutura da página */
 #app {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* 📌 Header */
+/*  Header */
 header {
     background: var(--color-primary);
     color: var(--color-light);
@@ -156,13 +156,13 @@ button:hover {
     gap: 1rem;
 }
 
-/* 📌 Nome da receita */
+/*  Nome da receita */
 .recipe-name {
     font-weight: bold;
     min-width: 200px;
 }
 
-/* 📌 Categoria */
+/*  Categoria */
 .recipe-category {
     min-width: 150px;
     text-align: left;
@@ -170,7 +170,7 @@ button:hover {
     color: #555;
 }
 
-/* 📌 Botões de ação */
+/*  Botões de ação */
 .actions {
     display: flex;
     gap: 0.5rem;
@@ -204,7 +204,7 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: 100%;
-    max-width: 800px; /* 🔄 Ajustado para não ficar muito compacto */
+    max-width: 800px; /* Ajustado para não ficar muito compacto */
 }
 
 .recipe-title {
@@ -213,7 +213,7 @@ button:hover {
     color: var(--color-primary);
 }
 
-/* 🔍 Barra de Pesquisa */
+/* Barra de Pesquisa */
 .filters {
     display: flex;
     flex-wrap: wrap;
@@ -246,7 +246,7 @@ button:hover {
     opacity: 0.9;
 }
 
-/* 📌 Footer */
+/* Footer */
 footer {
     background: var(--color-primary);
     color: var(--color-light);

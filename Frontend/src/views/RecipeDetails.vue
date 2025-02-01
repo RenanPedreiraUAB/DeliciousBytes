@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-details">
     <div class="recipe-card">
-      <!-- 🔹 Botão de Voltar agora alinhado à direita -->
+      <!-- Botão de Voltar agora alinhado à direita -->
       <button class="back-button" @click="$router.push('/')">← Voltar</button>
 
       <h2>{{ receita.nome }}</h2>
@@ -68,7 +68,7 @@ export default {
   position: relative;
 }
 
-/* 🔹 Ajusta o botão "Voltar" para a direita */
+/* Ajusta o botão "Voltar" para a direita */
 .back-button {
   position: absolute;
   top: 10px;

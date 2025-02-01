@@ -2,7 +2,7 @@
   <div>
     <h2>Receitas</h2>
 
-    <!-- 🔍 Barra de Pesquisa -->
+    <!-- Barra de Pesquisa -->
     <div class="filters">
       <input v-model="filters.nome" placeholder="Pesquisar por nome" />
       <input v-model="filters.autor" placeholder="Pesquisar por autor" />
@@ -10,16 +10,16 @@
         <option value="">Todas as categorias</option>
         <option v-for="cat in categorias" :key="cat" :value="cat">{{ cat }}</option>
       </select>
-      <button @click="buscarReceitas">Pesquisar</button> <!-- ✅ AGORA FAZ REQUISIÇÃO HTTP -->
+      <button @click="buscarReceitas">Pesquisar</button> <!-- AGORA FAZ REQUISIÇÃO HTTP -->
       <button @click="$router.push('/recipe-create')">+ Criar Nova Receita</button>
     </div>
 
-    <!-- 📋 Listagem de Receitas -->
+    <!-- Listagem de Receitas -->
     <div class="recipe-list">
       <div v-for="recipe in receitas" :key="recipe._id" class="recipe-item">
         <div class="recipe-main">
           <strong class="recipe-name">{{ recipe.nome }}</strong>
-          <span class="recipe-category">{{ recipe.categoria }}</span>
+          <span class="recipe-category">({{ recipe.categoria }})</span>
         </div>
 
         <div class="actions">
@@ -51,7 +51,7 @@ export default {
   methods: {
     async buscarReceitas() {
       try {
-        // ✅ Agora busca diretamente do backend com os filtros aplicados
+        // Agora busca diretamente do backend com os filtros aplicados
         this.receitas = await recipeService.listarReceitas(this.filters);
       } catch (error) {
         console.error('Erro ao buscar receitas:', error);

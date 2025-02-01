@@ -95,7 +95,7 @@ export default {
 
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-          // 🔹 Convertendo para JPEG Base64 para economizar espaço
+          // Convertendo para JPEG Base64 para economizar espaço
           this.receita.imagem = canvas.toDataURL("image/jpeg", 0.7);
           console.log("Imagem processada para Base64:", this.receita.imagem.length);
         };

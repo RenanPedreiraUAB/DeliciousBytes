@@ -10,7 +10,7 @@
       <span v-else>Login</span>
     </div>
 
-    <!-- 🔽 Popup de Logout -->
+    <!-- Popup de Logout -->
     <div v-if="mostrarMenu" class="user-menu">
       <button @click="logout">Logout</button>
     </div>
@@ -51,7 +51,7 @@ export default {
       
       this.$router.push("/login");
       setTimeout(() => {
-        window.location.reload(); // 🔄 Atualiza a página para limpar o estado corretamente
+        window.location.reload(); // Atualiza a página para limpar o estado corretamente
       }, 100);
     },
     updateUsername() {
